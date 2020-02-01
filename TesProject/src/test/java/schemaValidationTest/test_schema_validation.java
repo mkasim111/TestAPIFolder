@@ -77,6 +77,7 @@ public class test_schema_validation {
 
 		System.out.println();
 		System.out.println("_________________________________________________________________________________");
+		System.out.println(" Total number of objects          : " +" url "+url+" "+ jsonArray.size());
 		System.out.println(" Total number of objects parsed   : " +" url "+url+" "+ object_Count.get());
 		System.out.println(" Total number of null occurences  : " +" url "+url+" "+ aint.get());
 		System.out.println("_________________________________________________________________________________");

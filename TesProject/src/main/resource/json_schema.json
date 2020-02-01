@@ -17,7 +17,7 @@
       "type": "string"
     },
     "state-province": {
-      "type": [ "string", "null" ]
+      "type": [ "string"]
     },
     "domains": {
       "type": "array",
