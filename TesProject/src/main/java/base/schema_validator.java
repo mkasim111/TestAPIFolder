@@ -7,18 +7,14 @@ import com.github.fge.jsonschema.report.ProcessingReport;
 import com.github.fge.jsonschema.report.ProcessingMessage;
 import com.github.fge.jsonschema.util.JsonLoader;
 import com.google.gson.JsonParseException;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import com.fasterxml.jackson.databind.JsonNode;
 import java.io.*;
 import java.util.*;
 
 public class schema_validator {
-
-	private static final Logger s_logger = LogManager.getLogger(schema_validator.class);
 	
 	@SuppressWarnings("unused")
-	public ProcessingReport schema_Validation_Report(String jsonApi, String jsonSchema, int i) {
+	public ProcessingReport schema_Validation_Report(String jsonApi, String jsonSchema, int i, String url) {
 
 		String content = null;
 		try {
@@ -34,9 +30,9 @@ public class schema_validator {
 			content = sb.toString();
 			br.close();
 		} catch (FileNotFoundException e) {
-			s_logger.info("-------- File not found: Input file : " + jsonSchema);
+			System.out.println("-------- File not found: Input file : " + jsonSchema);
 		} catch (IOException e) {
-			s_logger.info("-------- File Read Error: Unable to read Input file : " + jsonSchema);
+			System.out.println("-------- File Read Error: Unable to read Input file : " + jsonSchema);
 			e.printStackTrace();
 		}
 		ProcessingReport report = null;
@@ -60,10 +56,9 @@ public class schema_validator {
 			Iterator<ProcessingMessage> iter = report.iterator();
 			while (iter.hasNext()) {
 				ProcessingMessage pm = iter.next();
-				System.out
-						.println("************Schema Validation failed for object number :" + i + "******************");
-				System.out.println("Processing Message: " + pm.toString());
-				System.out.println("Processing Message: " + pm.getMessage());
+				System.out.println("************Schema Validation failed for object number :" + i + "******************");
+				System.out.println("Processing Message: " +url+" "+ pm.toString());
+				System.out.println("Processing Message: " +url+" "+  pm.getMessage());
 				System.out.println("---------------------------------------------------------------------------------");
 			}
 		}
