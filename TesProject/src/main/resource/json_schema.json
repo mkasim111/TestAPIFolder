@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "web_pages": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "alpha_two_code": {
+      "type": "string"
+    },
+    "state-province": {
+      "type": [ "string", "null" ]
+    },
+    "domains": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "country": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "web_pages",
+    "name",
+    "alpha_two_code",
+    "state-province",
+    "domains",
+    "country"
+  ]
+}
